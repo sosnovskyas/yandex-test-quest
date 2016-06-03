@@ -1,5 +1,8 @@
 'use strict';
 import './styles.scss'
-import Form from './components/form'
+// import Form from './components/form'
+import CardsList from './components/cardList'
 
-new Form();
+const cardsList = new CardsList({
+  elem: document.querySelector('.result')
+});

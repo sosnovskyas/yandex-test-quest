@@ -35,7 +35,9 @@ module.exports = {
     loaders: [
       {test: /\.js?$/, exclude: /node_modules/, loaders: ['babel']},
       {test: /\.scss$/, loader: ExtractTextPlugin.extract(['css', 'sass?sourceMap'])},
-      {test: /\.json$/, exclude: /node_modules/, loader: 'json-loader'}
+      {test: /\.json$/, exclude: /node_modules/, loader: 'json-loader'},
+      // {test: /\.jade/, exclude: /node_modules/, loader: 'raw-loader'}
+      {test: /\.jade/, exclude: /node_modules/, loader: 'jade-loader'}
     ]
   },
   postcss: [autoprefixer]

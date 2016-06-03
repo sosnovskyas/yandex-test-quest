@@ -15,7 +15,6 @@ const compiler = webpack(webpackCnfig);
 server.use(webpackDevMiddleware(compiler, {
   publicPath: webpackCnfig.output.publicPath,
   hot: true,
-  historyApiFallback: true,
   stats: {
     colors: true,
     hash: false,
@@ -32,6 +31,10 @@ server.use(webpackHotMiddleware(compiler));
 
 server.set('view engine', 'jade');
 server.set('views', __dirname);
+
+server.use('/api/data', (req, res) => (
+  res.sendFile(path.join(__dirname, 'data.json'))
+));
 
 server.use('/', (req, res) => (
   res.render('index', { title: 'Hey', message: 'Hello there!'})
