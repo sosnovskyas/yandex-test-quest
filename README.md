@@ -5,7 +5,7 @@
 
 ##Install
 ```
-$ git clone
+$ git clone https://github.com/sosnovskyas/yandex-test-quest
 $ npm i
 ```
 ##Development
