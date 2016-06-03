@@ -7,7 +7,7 @@ export default class CardList {
     this._link = 'http://localhost:3000/api/data';
 
     elem.innerHTML = 'loading...';
-    // elem.innerHeight = template({cards: cards});
+    
     this.getData(res=> {
       elem.innerHTML = template({cards: res});
     })
