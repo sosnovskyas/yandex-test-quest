@@ -9,7 +9,32 @@ export default class CardList {
     elem.innerHTML = 'loading...';
     
     this.getData(res=> {
-      elem.innerHTML = template({cards: res});
+      let first = res[0];
+      let result = [];
+
+      // sort
+      for (let i = 0; i < res.length; i++) {
+        for (let j = 0; j < res.length; j++) {
+          if (res[j].to == first.from) {
+            first = res[j];
+          }
+        }
+      }
+
+      result.push(first);
+      for (let i = 0; i < res.length; i++) {
+        for (let j = 0; j < res.length; j++) {
+
+          if(result[result.length-1].to == res[j].from){
+            result.push(res[j]);
+          }
+        }
+      }
+
+      console.log('result:', result);
+
+      // console.log(pairs);
+      elem.innerHTML = template({cards: result});
     })
   }
 
